@@ -5,7 +5,6 @@
 #Built-in functions and modules, such as math, string, numpy, and random
 #Python Standard Library modules, such as os, sys, and time
 #Python data structures, such as dictionaries and tuples
-#Object-oriented programming concepts, such as classes, objects, and inheritance
 
 #core data types
 x1 =3
@@ -88,6 +87,71 @@ def my_func(argument):
     }
     return switcher.get(argument, "default")
 print(my_func(2))#If number not in dictionary above is called it will just print default.
+
+#FUNCTIONS -- USER DEFINED
+def greet(name): #Just this line alone Initializes function called greet but will return error as there is no body. name parameter is the argument.
+    print("Hello",name)#prints string and argument
+    print("How do you do")
+
+greet("Jack")#calls function above and returns two print statents with one with the argument "Jack"
+
+#PASSING MULTIPLE FUNCTION ARGUMENTS
+def add_numbers(n1, n2):
+    result = n1 + n2
+    return result #function terminates at return
+number1 = 5.4
+number2 = 6.7
+result = add_numbers(number1, number2) #return value is assigned to result variable
+print("The sum is", result)
+
+#OTHER PYTHON FUNCTIONS --- BUILT IN
+float()
+int()
+input()
+
+#EX.
+marks = [55, 64, 75, 80, 34]
+length = len(marks)
+print(length) #prints number of values in marks list
+
+#Positional arguments ex.
+def add_numbers(n1, n2): 
+    sum = n1 + n2
+    return sum
+result = add_numbers(5.4)#This function returns a type error as add_numbers() missing 1 required positional argument: 'n2'
+print(result)
+
+#DEFAULT ARGUMENTS
+#to fix this issue you can add DEFAULT VALUES
+def add_numbers(n1 = 100, n2 = 150): 
+    sum = n1 + n2
+    return sum
+result = add_numbers(5.4)#This function returns 155.4 as now n2 is now default at 150 and we have updated the n1 argument as 5.4
+print(result)
+
+#KEYWORD ARGUMENTS
+def greet(name, message):
+    print("Hello",name)
+    print(message)
+greet("Jack", "Whats going on?")
+greet(message = "Howdy?", name = "Jill")#passes arguments by name, order does not matter because they are name-specified
+
+#Making functions return multiple values with TUPLES
+#Tuples can contain multiple values like a list but it is immutable(cannot modify value)
+even_nums = (2, 4, 6)#initializes the tuple
+print(type(even_nums))
+a, b, c = even_nums #unpacks the tuple into multiple variables, a,b,c in that order.
+second_num = even_nums[1]#You can access tuple elements using zero-indexing like a list
+
+#Returning multiple values ex.
+def raise_both(value1, value2):#Function that raises value1 to power of value2 andvice vers
+    new_value1 = value1 ** value2
+    new_value2 = value2 ** value1
+    new_tuple = (new_value1, new_value2)#initializes tuple taking both new values
+
+    return new_tuple
+result = raise_both(2,3)
+print(result)
 
 
 #data structures - Dictionaries - ORDER DOES NOT MATTER WITHIN DICTIONARIES(NOT SORTED), You can only retrieve values with the key.
